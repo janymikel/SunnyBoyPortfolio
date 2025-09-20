@@ -6,16 +6,14 @@ import { useRef } from "react";
 interface BlurFadeProps {
   children: React.ReactNode;
   className?: string;
-  variant?: {
-    hidden: { y: number };
-    visible: { y: number };
-  };
-  duration?: number;
-  delay?: number;
-  yOffset?: number;
-  inView?: boolean;
-  inViewMargin?: string;
-  blur?: string;
+  variant?: { hidden: { y: number }; visible: { y: number }}
+  
+    duration?: number;
+    delay?: number;
+    yOffset?: number;
+    inView?: boolean;
+    inViewMargin?: string;
+    blur?: string;
 }
 const BlurFade = ({
   children,

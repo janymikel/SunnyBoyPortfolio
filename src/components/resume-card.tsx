@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Badge } from "./ui/badge";
 import { Card, CardHeader } from "./ui/card";
 import { cn } from "@/lib/utils";
@@ -19,6 +19,7 @@ interface ResumeCardProps {
   period: string;
   description?: string;
 }
+
 export const ResumeCard = ({
   logoUrl,
   altText,
@@ -46,11 +47,13 @@ export const ResumeCard = ({
     >
       <Card className="flex">
         <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
+          {/* Fix: Add `size-12` and `flex items-center` for consistent sizing */}
+          <Avatar className="border size-12 flex items-center justify-center m-auto bg-muted-background dark:bg-foreground">
+            {/* Fix: Add `object-contain` and `p-1` for proper fit */}
             <AvatarImage
               src={logoUrl}
               alt={altText}
-              className="object-contain"
+              className="object-contain p-1"
             />
             <AvatarFallback>{altText[0]}</AvatarFallback>
           </Avatar>
@@ -91,7 +94,6 @@ export const ResumeCard = ({
               initial={{ opacity: 0, height: 0 }}
               animate={{
                 opacity: isExpanded ? 1 : 0,
-
                 height: isExpanded ? "auto" : 0,
               }}
               transition={{
@@ -108,3 +110,4 @@ export const ResumeCard = ({
     </Link>
   );
 };
+
